@@ -1,0 +1,12 @@
+backend:
+  build: .
+  dockerfile: Dockerfile
+  volumes:
+          - ./:/go/src/github.com/guilhermebr/backenderia/
+  links:
+    - db
+  ports:
+          - "3000:3000"
+db:
+  image: mongo
+  restart: always

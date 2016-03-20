@@ -1,13 +1,13 @@
 # Backenderia
 
-## Technologies 
+## Technology 
 
 - Go
 - Negroni
 - gorilla/mux
 - Angular.js
 - Google Material Design Lite
-- Caddyserver
+- Caddy
 - Docker / Docker-Compose
 
 ## Apps

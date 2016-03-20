@@ -1,0 +1,14 @@
+0.0.0.0:2015
+
+root /site/src/
+
+startup "sh /site/start.sh"
+
+gzip
+ext .html
+log stdout
+
+header /api Access-Control-Allow-Origin *
+proxy  /api http://backend:3000/ {
+    without /api
+}

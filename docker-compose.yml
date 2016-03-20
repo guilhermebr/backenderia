@@ -1,12 +1,23 @@
-backend:
-  build: .
+frontend:
+  build: ./frontend/
   dockerfile: Dockerfile
-  volumes:
-          - ./:/go/src/github.com/guilhermebr/backenderia/
   links:
-    - db
+      - backend
   ports:
-          - "3000:3000"
+      - "8080:2015"
+  volumes:
+      - ./frontend:/site/
+
+backend:
+  build: ./backend/
+  dockerfile: Dockerfile
+  links:
+      - db
+  volumes:
+      - ./backend:/go/src/github.com/guilhermebr/backenderia/backend
+
 db:
   image: mongo
+  volumes:
+       - ./db:/var/lib/mongodb
   restart: always

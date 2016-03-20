@@ -1,0 +1,40 @@
+{
+	"ImportPath": "github.com/guilhermebr/backenderia/backend",
+	"GoVersion": "go1.6",
+	"Deps": [
+		{
+			"ImportPath": "github.com/avelino/slugify",
+			"Rev": "8d90924b439879ca88d9370a674489a50b865779"
+		},
+		{
+			"ImportPath": "github.com/codegangsta/negroni",
+			"Comment": "v0.1-70-gc7477ad",
+			"Rev": "c7477ad8e330bef55bf1ebe300cf8aa67c492d1b"
+		},
+		{
+			"ImportPath": "github.com/gorilla/context",
+			"Rev": "1c83b3eabd45b6d76072b66b746c20815fb2872d"
+		},
+		{
+			"ImportPath": "github.com/gorilla/mux",
+			"Rev": "9c068cf16d982f8bd444b8c352acbeec34c4fe5b"
+		},
+		{
+			"ImportPath": "github.com/nuveo/utils/adapter",
+			"Rev": "27b66b30de3f975843e8c7583672934fa07302f0"
+		},
+		{
+			"ImportPath": "golang.org/x/text/transform",
+			"Rev": "0fe7e6856182a6ebfcf1e6a7aa90bead9a8e1bc0"
+		},
+		{
+			"ImportPath": "golang.org/x/text/unicode/norm",
+			"Rev": "0fe7e6856182a6ebfcf1e6a7aa90bead9a8e1bc0"
+		},
+		{
+			"ImportPath": "labix.org/v2/mgo",
+			"Comment": "287",
+			"Rev": "gustavo@niemeyer.net-20140501184651-975yyw9ipld92pji"
+		}
+	]
+}

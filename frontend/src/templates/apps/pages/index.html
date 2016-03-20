@@ -1,0 +1,48 @@
+<header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+  <div class="mdl-layout__header-row">
+    <span class="mdl-layout-title">Pages</span>
+    <div class="mdl-layout-spacer"></div>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+      <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+        <i class="material-icons">search</i>
+      </label>
+      <div class="mdl-textfield__expandable-holder">
+        <input class="mdl-textfield__input" type="text" id="search">
+        <label class="mdl-textfield__label" for="search">Enter your query...</label>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="demo-container mdl-grid">
+    <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+    <table class="mdl-data-table mdl-js-data-table mdl-cell mdl-cell--12-col">
+      <thead>
+        <tr>
+          <th class="mdl-data-table__cell--non-numeric">Title</th>
+          <th class="mdl-data-table__cell--non-numeric">Active?</th>
+          <th class="mdl-data-table__cell--non-numeric">Slug</th>
+          <!-- <th class="mdl-data-table__cell--non-numeric">Actions</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat='p in pageCtrl.pages' ng-href='#/pages/{{p._id}}'>
+            <td class="mdl-data-table__cell--non-numeric"><a ng-href='#/pages/{{p._id}}'>{{p.title}}</a></td>
+            <td class="mdl-data-table__cell--non-numeric">{{p.active}}</td>
+            <td class="mdl-data-table__cell--non-numeric">{{p.slug}}</td>
+	    <!-- <td class="mdl-data-table__cell--non-numeric">
+		    <button class="mdl-button mdl-js-button"><i class="material-icons">edit</i></button>
+		    <button class="mdl-button mdl-js-button"><i class="material-icons">delete</i></button>
+	    </td> -->
+        </tr>
+      </tbody>
+    </table>
+</div>
+</div>
+    <!-- Colored mini FAB button -->
+    <a class="float-button mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored mdl-js-ripple-effect "
+            ng-href='#/pages/new'>
+	      <i class="material-icons">add</i>
+    </a>
+
+    <script src="https://code.getmdl.io/1.1.2/material.min.js"></script>

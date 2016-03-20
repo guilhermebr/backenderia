@@ -1,0 +1,44 @@
+<header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+  <div class="mdl-layout__header-row">
+    <span class="mdl-layout-title">Pages - New</span>
+    <div class="mdl-layout-spacer"></div>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+      <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+        <i class="material-icons">search</i>
+      </label>
+      <div class="mdl-textfield__expandable-holder">
+        <input class="mdl-textfield__input" type="text" id="search">
+        <label class="mdl-textfield__label" for="search">Enter your query...</label>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="demo-container mdl-grid">
+  <dialog class="mdl-dialog mdl-cell mdl-cell--6-col">
+      <div class="mdl-dialog__content">
+    <form>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <label class="mdl-textfield__label" for="title">Title</label>
+            <input class="mdl-textfield__input"  type="text" id="title" pattern="[A-Z,a-z,0-9, ]*" ng-model="page.title">
+        </div>
+        <div class="mdl-layout-spacer"></div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <textarea class="mdl-textfield__input" type="text" rows= "8" id="content" ng-model="page.content">
+            </textarea>
+            <label class="mdl-textfield__label" for="content">Content</label>
+        </div>
+
+        <label for="active" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" >
+            <input type="checkbox" id="active" class="mdl-checkbox__input" unchecked  ng-model="page.active"/>
+            <span class="mdl-checkbox__label">Active?</span>
+        </label>
+        <div class="mdl-dialog__actions">
+      <a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" ng-click="ctrl.savePage(page)">
+          <i class="material-icons">save</i>
+      </a>
+  </div>
+    </form>
+</div>
+</dialog>
+</div>

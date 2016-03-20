@@ -1,0 +1,15 @@
+{
+  "name": "backenderia-template",
+  "version": "0.0.1",
+  "authors": [
+    "Guilherme Rezende <guilhermebr@gmail.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "angular": "~1.4.9",
+    "angular-resource": "~1.4.9",
+    "angular-route": "~1.4.9",
+    "material-design-lite": "~1.1.2"
+  }
+}

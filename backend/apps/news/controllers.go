@@ -1,10 +1,11 @@
-package page
+package news
 
 import (
 	"encoding/json"
 	"net/http"
 
 	"github.com/gorilla/mux"
+
 	"labix.org/v2/mgo/bson"
 )
 
@@ -15,11 +16,10 @@ type Response struct {
 }
 
 func Create(w http.ResponseWriter, r *http.Request) {
-	page := NewPage()
+	news := NewNews()
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 
-	if err := json.NewDecoder(r.Body).Decode(&page); err != nil {
-		w.WriteHeader(422)
+	if err := json.NewDecoder(r.Body).Decode(&news); err != nil {
 		json.NewEncoder(w).Encode(Response{
 			Status: "error",
 			Error: bson.M{
@@ -30,19 +30,7 @@ func Create(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if page.Title == "" {
-		w.WriteHeader(http.StatusBadRequest)
-		json.NewEncoder(w).Encode(Response{
-			Status: "fail",
-			Error: bson.M{
-				"code":    http.StatusBadRequest,
-				"message": "Field title is required.",
-			},
-		})
-		return
-	}
-
-	err := page.Create()
+	err := news.Create()
 	if err != nil {
 		w.WriteHeader(422)
 		json.NewEncoder(w).Encode(Response{
@@ -59,15 +47,15 @@ func Create(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(Response{
 		Status: "success",
 		Data: bson.M{
-			"page": page,
+			"news": news,
 		},
 	})
 }
 
 func List(w http.ResponseWriter, r *http.Request) {
-	page := NewPage()
+	n := NewNews()
 
-	pages, err := page.Read()
+	news, err := n.Read()
 
 	if err != nil {
 		w.WriteHeader(422)
@@ -85,7 +73,7 @@ func List(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(Response{
 		Status: "success",
 		Data: bson.M{
-			"pages": pages,
+			"news": news,
 		},
 	})
 }
@@ -93,9 +81,9 @@ func List(w http.ResponseWriter, r *http.Request) {
 func Read(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 
-	page := NewPage()
-	page.ID = bson.ObjectIdHex(vars["id"])
-	pages, err := page.Read()
+	n := NewNews()
+	n.ID = bson.ObjectIdHex(vars["id"])
+	news, err := n.Read()
 
 	if err != nil {
 		w.WriteHeader(422)
@@ -113,7 +101,7 @@ func Read(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(Response{
 		Status: "success",
 		Data: bson.M{
-			"page": pages[0],
+			"news": news[0],
 		},
 	})
 }

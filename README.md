@@ -1,6 +1,6 @@
 # Backenderia
 
-Backenderia is a CMS API with common apps.
+Backenderia is a Microservice Architecture CMS API writed in Go(lang)
 
 ## Technology 
 

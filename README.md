@@ -7,8 +7,8 @@ Backenderia is a Microservice Architecture CMS API writed in Go(lang)
 - [Go](https://github.com/golang/go)
 - [Negroni](https://github.com/codegangsta/negroni)
 - [gorilla/mux](https://github.com/gorilla/mux)
-- Angular.js
-- Google Material Design Lite
+- [Angular.js](https://github.com/angular)
+- [Google Material Design Lite](https://github.com/google/material-design-lite)
 - [Caddy](https://github.com/mholt/caddy)
 - [Docker](http://github.com/docker/docker) / [Docker-Compose](http://github.com/docker/compose/)
 

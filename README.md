@@ -1,5 +1,7 @@
 # Backenderia
 
+Backenderia is a CMS API with common apps.
+
 ## Technology 
 
 - Go
@@ -13,6 +15,7 @@
 ## Apps
 
 - Pages
+- News
 
 ## Run
 

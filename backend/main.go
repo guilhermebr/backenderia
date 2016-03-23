@@ -9,6 +9,7 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/guilhermebr/backenderia/backend/apps/news"
 	"github.com/guilhermebr/backenderia/backend/apps/page"
+	"github.com/guilhermebr/backenderia/backend/apps/user"
 	"github.com/nuveo/utils/adapter/mongo"
 )
 
@@ -31,6 +32,7 @@ func main() {
 	//Register Apps
 	page.Register(r, db)
 	news.Register(r, db)
+	user.Register(r, db)
 
 	//Run Server
 	n.UseHandler(r)

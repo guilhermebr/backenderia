@@ -21,7 +21,7 @@ Backenderia is a Microservice Architecture CMS API writed in Go(lang)
 
 - git clone https://github.com/guilhermebr/backenderia.git
 - cd backenderia
-- docker compose up -d
+- docker-compose up -d
 - docker-machine ip default  (ex: 192.168.99.100)
 - open http://192.168.99.100:8080
 

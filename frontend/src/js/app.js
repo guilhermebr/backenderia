@@ -28,6 +28,21 @@ angular.module('Backenderia', ['ngRoute'])
             controller: 'PagesShowController',
             controllerAs: 'ctrl'
         })
+        .when('/news', {
+            templateUrl: 'templates/apps/news/index.html',
+            controller: function ($http) {
+                var controller = this;
+                $http({method: 'GET', url: '/api/news/'}).success(function(data) {
+                  controller.news = data.data.news;
+                });
+            },
+            controllerAs: 'newsCtrl'
+        })
+        .when('/news/new', {
+            templateUrl: 'templates/apps/news/new.html',
+            controller: 'NewsCreateController',
+            controllerAs: 'ctrl'
+        })
         .otherwise({
             redirectTo: '/home'
         });

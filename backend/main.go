@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"runtime"
 
 	"github.com/codegangsta/negroni"
 	"github.com/gorilla/mux"
@@ -14,6 +15,9 @@ import (
 )
 
 func main() {
+	runtime.GOMAXPROCS(runtime.NumCPU())
+	log.SetFlags(log.Ldate | log.Ltime | log.Llongfile)
+
 	config := map[string]string{
 		"db_uri": fmt.Sprintf("%s:%s", os.Getenv("DB_PORT_27017_TCP_ADDR"),
 			os.Getenv("DB_PORT_27017_TCP_PORT")),

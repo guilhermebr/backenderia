@@ -58,7 +58,14 @@ func (u *User) Read() (res []User, err error) {
 	}
 
 	x, err := json.Marshal(s)
+	if err != nil {
+		return nil, err
+	}
+
 	err = json.Unmarshal(x, &res)
+	if err != nil {
+		return nil, err
+	}
 
 	return
 }

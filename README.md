@@ -17,6 +17,7 @@ Backenderia is a Microservice Architecture CMS API writed in Go(lang)
 - Pages
 - News
 - Users
+- Clients
 
 ## Run
 

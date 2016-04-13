@@ -9,7 +9,8 @@ import (
 )
 
 type User struct {
-	ID       bson.ObjectId `bson:"_id,omitempty" json:"_id" `
+	ID       bson.ObjectId `bson:"_id,omitempty" json:"_id"`
+	ClientID bson.ObjectId `bson:"client_id" json:"client_id"`
 	Name     string        `bson:"name"`
 	Username string        `bson:"username"`
 	Email    string        `bson:"email"`
@@ -42,6 +43,10 @@ func (u *User) Read() (res []User, err error) {
 	query := bson.M{}
 	if u.ID != "" {
 		query["_id"] = u.ID
+	}
+
+	if u.ClientID != "" {
+		query["client_id"] = u.ClientID
 	}
 
 	if u.Username != "" {

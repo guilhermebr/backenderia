@@ -55,9 +55,34 @@ func Create(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	//Verify if username already exist
+	if c["email"] == "" {
+		w.WriteHeader(http.StatusBadRequest)
+		json.NewEncoder(w).Encode(Response{
+			Status: "fail",
+			Error: bson.M{
+				"code":    http.StatusBadRequest,
+				"message": "Field email is required.",
+			},
+		})
+		return
+	}
+
+	if c["client"] == "" {
+		w.WriteHeader(http.StatusBadRequest)
+		json.NewEncoder(w).Encode(Response{
+			Status: "fail",
+			Error: bson.M{
+				"code":    http.StatusBadRequest,
+				"message": "Field client is required.",
+			},
+		})
+		return
+	}
+
+	//Verify if username already exist for the client
 	user := NewUser()
 	user.Username = c["username"]
+	user.ClientID = bson.ObjectIdHex(c["client"])
 	users, err := user.Read()
 	if len(users) > 0 {
 		w.WriteHeader(http.StatusBadRequest)
@@ -74,6 +99,7 @@ func Create(w http.ResponseWriter, r *http.Request) {
 	//Verify if email already exist
 	user = NewUser()
 	user.Email = c["email"]
+	user.ClientID = bson.ObjectIdHex(c["client"])
 	users, err = user.Read()
 	if len(users) > 0 {
 		w.WriteHeader(http.StatusBadRequest)

@@ -16,8 +16,16 @@ backend:
   volumes:
       - ./backend:/go/src/github.com/guilhermebr/backenderia/backend
 
-db:
+mongodata:  
   image: mongo
   volumes:
-       - ./db:/var/lib/mongodb
+        - /data/db
+  command: --break-mongo
+
+db:
+  image: mongo
+  volumes_from:
+          - mongodata
+  ports:
+        - "27017"
   restart: always

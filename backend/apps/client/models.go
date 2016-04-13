@@ -12,7 +12,7 @@ type Client struct {
 	ID    bson.ObjectId `bson:"_id,omitempty" json:"_id" `
 	Name  string        `bson:"name" json:"name"`
 	Slug  string        `json:"slug" json:"slug"`
-	Email string        `bson:"email json:"email""`
+	Email string        `bson:"email" json:"email"`
 }
 
 func NewClient() *Client {
